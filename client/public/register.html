@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Calendar Reimagined</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Register</h2>
+        </div>
+        <form id="register-form" action="/register" method="POST">
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-field">
+                <label for="user-type">User Type:</label>
+                <select id="user-type" name="user-type" required>
+                    <option value="">Select User Type</option>
+                    <option value="student">Student</option>
+                    <option value="organizer">Event Organizer</option>
+                </select>
+            </div>
+            <div class="form-field">
+                <button type="submit">Register</button>
+            </div>
+            <div class="form-field">
+                <p>Already have an account? <a href="login.html">Login here</a></p>
+            </div>
+        </form>
+    </div>
+    <script>
+        // Check if the URL contains a query parameter indicating successful registration
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+
+        // If the URL contains the 'success' query parameter, display a success message
+        if (success === 'true') {
+            alert('Your account has been created successfully!');
+        }
+    </script>
+</body>
+</html>
